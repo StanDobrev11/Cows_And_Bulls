@@ -5,7 +5,7 @@
 # for bull in range(5):
 #     for cow in range(5 - bull):
 #         result = (bull, cow)
-#         print(result, end=", ")
+#         print(result, result, end=", ")
 
 # l1 = []
 # l2 = "abcd"
@@ -33,6 +33,18 @@
 #     print(list_2)
 
 
-func_dict = {(0, 0): 1, (0, 1): "var", (0, 2): 3}
-answer = (0, 2)
-print(func_dict[answer])
+# func_dict = {(0, 0): 1, (0, 1): "var", (0, 2): 3}
+# answer = (0, 2)
+# print(func_dict[answer])
+
+# lst = []
+# for _ in range(1, 10):
+#     lst.append(str(_))
+# print(lst)
+
+# lst = ['5']
+# ex_lst = [[], lst]
+# print(ex_lst[1][0])
+
+lst = [1, 2]
+print(len(lst))
