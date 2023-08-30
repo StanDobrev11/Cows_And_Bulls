@@ -13,6 +13,7 @@ And the opponent asks how many matches are there in 7893
 The answer is 1 "bull" and 2 "cows".
 """
 
+
 # user_number = "1234"
 # user_number = list(user_number)
 
@@ -207,3 +208,6 @@ def play():  # main game line
 
 play()
 # 2456
+
+# TODO fix to break when 4 bulls are guessed
+# TODO add comments to explain functions
