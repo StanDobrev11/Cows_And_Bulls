@@ -2,28 +2,35 @@ from random import choice
 
 """
 Bulls and Cows is a logic game to guess numbers. The numbers have to be with four digits and the 
-digits must be all different. 
-The game is played by two players and they take turns to try to guess their opponent's number. 
+digits must be all different and in range 1 - 9. 
+The game is played by two players and they take turns to try to guess their opponent's number.
+In this variation, only the computer is guessing and your number should be guessed in no more than 7 tries.
 The answering player responds with the number of matching digits. 
 If they are in their right positions, they are "bulls"; if in different positions, they are "cows".
 
 Example:
 If the player's number is 7359
 And the opponent asks how many matches are there in 7893
-The answer is 1 "bull" and 2 "cows".
+The answer is 1 "bull" and 2 "cows", 7 being the bull and 5 & 9 - cows.
 """
 
 
-# user_number = "1234"
-# user_number = list(user_number)
-
-def comp_guess(checked_nums):  # to be used only on first and second attempts
+def comp_guess(checked_nums: list) -> list:
+    """
+    This function is used to generate #1 and #2 computer guesses.
+    They are generated as so that no two numbers are alike.
+    The function is used only for the first two attempts
+    :param checked_nums:  Contains the numbers to be avoided in the 2nd guess
+    :return: Computer generated random 4-digit number
+    """
+    # the list used to pick the number for the first two attempts
     all_num_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
     for element in checked_nums:
         if element in all_num_list:
             all_num_list.remove(element)
     guess = []
     for _ in range(4):
+        # from random modul, function choice is used:
         num = choice(all_num_list)
         guess.append(num)
         all_num_list.remove(num)
@@ -150,7 +157,7 @@ def play():  # main game line
     answers_list = []
     nums_not_in_play = []
     actual_nums = []
-    have_all_nums = False
+    # have_all_nums = False
     while not is_guessed:
         while play_count < 2:  # first 2 attempts to pass through all the numbers w/out repetition
             play_count += 1
@@ -159,12 +166,12 @@ def play():  # main game line
             print("Cows & bulls in: ", ''.join(num))
             bulls = int(input("Bulls: "))
             if bulls == 4:
-                print("I won!")
+                print("Your number has been guessed!!!")
                 is_guessed = True
                 break
             cows = int(input("Cows: "))
             if bulls + cows == 4:
-                have_all_nums = True
+                # have_all_nums = True
                 for each in num:
                     actual_nums.append(each)
                 # break
@@ -177,8 +184,8 @@ def play():  # main game line
             guesses_list.append("".join(checked_nums))
             answers_list.append(checked)
 
-        work_list = total_answer_count(answers_list, guesses_list, actual_nums,
-                                       nums_not_in_play)  # returns actual_nums, nums_not_in_play
+        # returns actual_nums, nums_not_in_play
+        work_list = total_answer_count(answers_list, guesses_list, actual_nums, nums_not_in_play)
         generated_list = generated_number_list_function(guesses_list, answers_list, work_list)
         while not is_guessed:
             if len(actual_nums) == 4:

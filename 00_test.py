@@ -47,4 +47,8 @@
 # print(ex_lst[1][0])
 
 lst = [1, 2]
-print(len(lst))
+
+
+# print(len(lst))
+
+
