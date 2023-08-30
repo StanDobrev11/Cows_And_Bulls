@@ -103,6 +103,10 @@ def random_generated_list(generated_list, guesses_list, answers_list, work_list)
         random_num = choice(generated_list)
         print("Cows & bulls in: ", ''.join(random_num))
         bulls = int(input("Bulls: "))
+        if bulls == 4:
+            print("Your number has been guessed!!!")
+            answers_list.append((4, 0))
+            break
         cows = int(input("Cows: "))
 
         checked = (bulls, cows)  # returns bulls & cows in the generated number
@@ -216,5 +220,5 @@ def play():  # main game line
 play()
 # 2456
 
-# TODO fix to break when 4 bulls are guessed
 # TODO add comments to explain functions
+# TODO fix when at first attempt we have ttl 4 digits guessed and to start working with them only!!!
